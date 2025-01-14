@@ -1,15 +1,7 @@
-# startup
-Startup for cs 260
-
-Mood tracker
-
-A simple tracker than alerts you everyday to make an entry. "How are you feeling today?" The user then responds with an emoji and can add an optional note for the day.
-A calender view is presented allowing the user to see their mood over a month or week at a time.
-
-There would be a login feature and other people would be able to see the emoji you selected for the day. 
-If you select any emoji other than the happy one, they can give you some love by pressing a heart and the you will get notified real time, "John gave you some love!".
-
-Elevator Pitch:
+# Mood tracker
+Startup for CS 260
+## Specification Deliverable
+### Elevator Pitch
 Imagine a simple app that asks you one question every day: “How are you feeling today?” With just a tap, choose an emoji to reflect your mood and optionally jot down a quick note. 
 The app organizes your entries into a beautiful calendar view, so you can spot trends and reflect on your emotional journey.
 
@@ -18,4 +10,26 @@ You’ll instantly get a notification saying, “John gave you some love!” It�
 
 Start building an emotional support circle while gaining insights into your own well-being one emoji at a time.
 
+### Design
 ![alt text](moodtracker_concept.png)
+
+### Key Features
+- Secure login over HTTPS
+- Push notification to user daily
+- Display emotion options
+- Ability to record daily emotion and optional note
+- Ability to see your past recorded emotions in a calendar view
+- Ability to see other user's daily emotion (when not happy)
+- Ability to "send love" to other users
+- Users receive real-time notifications when they receive love from other users
+
+### Technologies
+- HTML: Uses correct HTML. Three HTML pages, a login page, enter your feelings page, and "send some love" page.
+- CSS: Application looks aesthetically pleasing. Website works on different screen sizes, including on mobile. Good use of white space.
+- React: Provides login, emotion choice display, choosing your daily emotion, adds your daily emotion to the calendar, enters optional note, displays other users emotions, sending love to other, backend endpoint calls.
+- Service: Backend service with  endpoints for:
+    - Retrieving emotion choices
+    - Submitting daily emotion choice
+    - Retrieving other user's emotions
+- DB/Login: Stores users, emotion choices (per date), emotional daily notes in databse. Register and login users. Credentials stored in databse. Can't add to your mood tracker or send love without logging in.
+- Websocket: Each time a user receives love, they will be notified. Everyday, a message will go to each user asking "How are you feeling today?"
