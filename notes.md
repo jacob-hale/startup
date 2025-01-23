@@ -15,3 +15,15 @@ Connects IP address to domain name (DNS)
 
 ### Caddy
 Using git bash and editing the Caddyfile, website becomes secure http -> https
+deployFiles.sh to post files to your domain
+./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s simon
+
+## HTML
+It is all about the structure.
+Tags are important. 
+Only focus on the structure and content.
+Also includes forms and media.
+
+##
+All about styling.
+Spacing, fonts, colors, animations, alignment, etc.
