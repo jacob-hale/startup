@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mood Tracker || Home</title>
 </head>
 <body>
-    
+    <h1>Mood Tracker</h1>
+    <h3>Home</h3>
+    <h2>Hello, ______!</h2>
+    <p>How are you feeling today?</p>
+    <!-- form choose emotion option -->
+      <!-- <label for="select">Select Emotion: </label> -->
+        <select id="select" name="varSelect">
+          <option value="" selected disabled hidden>Select Emotion</option>
+          <option>😊 happy</option>
+          <option>😢 sad</option>
+          <option>😡 angry</option>
+          <option>😴 tired</option>
+          <option>😐 plain</option>
+        </select>
+
+
+    <!-- form for optional text entry -->
+        <div></div>
+        <label for="textarea">Add a note (optional): </label>
+        <textarea id="textarea" name="varTextarea"></textarea>
+        <button type="submit">Submit</button>
+    <!-- calendar that retrieves previous entries -->
+
+    <footer>
+        <div><a href="https://github.com/jacob-hale/startup">My Github Repo</a></div>
+    </footer>
 </body>
 </html>
