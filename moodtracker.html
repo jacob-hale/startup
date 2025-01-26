@@ -8,10 +8,10 @@
 <body>
     <h1>Mood Tracker</h1>
     <h3>Home</h3>
-    <h2>Hello, ______!</h2>
+    <h2>Hello, ______! (Retrieve user's name from database after login)</h2>
     <p>How are you feeling today?</p>
     <!-- form choose emotion option -->
-      <!-- <label for="select">Select Emotion: </label> -->
+      <div>
         <select id="select" name="varSelect">
           <option value="" selected disabled hidden>Select Emotion</option>
           <option>😊 happy</option>
@@ -20,17 +20,27 @@
           <option>😴 tired</option>
           <option>😐 plain</option>
         </select>
-
+    </div>
 
     <!-- form for optional text entry -->
-        <div></div>
+    <div>
         <label for="textarea">Add a note (optional): </label>
         <textarea id="textarea" name="varTextarea"></textarea>
         <button type="submit">Submit</button>
+        <p>*Submits emotion, note, with date into the database</p>
+    </div>
     <!-- calendar that retrieves previous entries -->
+    <div>
+        <p>*calendar feature will retrieve previous entries stored on the database</p>
+        <label for="date">Past Entries</label>
+        <input type="date" name="varDate" id="date" />
+    </div>
+    <p>On _______, you felt (happy, sad, angry, tired, or plain).</p>
+    <p>*if user entered a note* You said: "User's note"</p>
 
+    <p><a href="sharelove.html">Share some love!</a></p>
     <footer>
-        <div><a href="https://github.com/jacob-hale/startup">My Github Repo</a></div>
+        <p><a href="https://github.com/jacob-hale/startup">My Github Repo</a></p>
     </footer>
 </body>
 </html>
