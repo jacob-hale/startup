@@ -33,3 +33,12 @@ Start building an emotional support circle while gaining insights into your own 
     - Retrieving other user's emotions
 - DB/Login: Stores users, emotion choices (per date), emotional daily notes in databse. Register and login users. Credentials stored in databse. Can't add to your mood tracker or send love without logging in.
 - Websocket: Each time a user receives love, they will be notified. Everyday, a message will go to each user asking "How are you feeling today?"
+
+## HTML Deliverable
+I created the HTML for the startup which includes the index(login), the moodtracker, and the share some love pages. Each are linked with the NAV tag. The index page has login placeholder features that will be implemented when the database is set up.
+
+The moodtracker page has a section where daily emotion can be selected and an optional text can be added. The emotion, note, and date stored will be added later to the databse. There is a calendar section that will retrieve the data from the entry of that date, this function will be implemented when the database is set up.
+
+The share some love page includes an interactive feature where the database will pull other user's daily entries and you can press a button to "give them love". When implemented with WebSocket, the other user will recieve a realtime notification saying, "*User* sends some love!".
+
+All HTML is structured in an organized way and functions properly. Placeholders are used for login, database, and WebSocket features.
