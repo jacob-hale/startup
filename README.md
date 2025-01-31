@@ -37,7 +37,7 @@ Start building an emotional support circle while gaining insights into your own 
 ## HTML Deliverable
 I created the HTML for the startup which includes the index(login), the moodtracker, and the share some love pages. Each are linked with the NAV tag. The index page has login placeholder features that will be implemented when the database is set up.
 
-The moodtracker page has a section where daily emotion can be selected and an optional text can be added. The emotion, note, and date stored will be added later to the databse. There is a calendar section that will retrieve the data from the entry of that date, this function will be implemented when the database is set up.
+The moodtracker page has a section where daily emotion can be selected and an optional text can be added. A 3rd party placeholder checks the date. This will ensure that the user can only enter one entry per day. The emotion, note, and date stored will be added later to the databse. There is a calendar section that will retrieve the data from the entry of that date, this function will be implemented when the database is set up.
 
 The share some love page includes an interactive feature where the database will pull other user's daily entries and you can press a button to "give them love". When implemented with WebSocket, the other user will recieve a realtime notification saying, "*User* sends some love!".
 

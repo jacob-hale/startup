@@ -1,9 +1,11 @@
-body {
-    font-size:64px;
+h1{
+    text-align: center;
 }
-p:hover {
-    color:blue;
+h3{
+    text-align: center;
+
 }
-.background{
-    color:beige
+
+#login{
+    text-align: center;
 }

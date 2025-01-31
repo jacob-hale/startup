@@ -11,13 +11,16 @@
      <h1>Mood Tracker</h1>
      <h3>Login</h3>
     <!-- login form -->
-     <div>
+     <div id="login">
         <label for="text">Name: </label>
         <input type="text" id="text" name="varText" placeholder="Your name here"/>
         <label for="password">Password: </label>
         <input type="password" id="password" name="varPassword" placeholder="Your password here" />
-        <button type="submit">Create</button>
-        <button type="submit">Login</button>
+        <div id="buttons">
+            <button type="submit">Create</button>
+            <button type="submit">Login</button>
+        </div>
+        
         <p>*checks to see if login info is in database</p>
         <p>*once logged in, navigates to <a href="moodtracker.html">Mood Tracker</a></p>
      </div>
