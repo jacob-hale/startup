@@ -1,5 +1,73 @@
+/* Colors in Palette
+Color	Hex	RGB
+#00b8ff	(0,184,255)
+#009bd6	(0,155,214)
+#00719c	(0,113,156)
+#00415a	(0,65,90)
+#001f2b	(0,31,43) */
+.lato-thin {
+    font-family: "Lato", serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .lato-light {
+    font-family: "Lato", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .lato-regular {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .lato-bold {
+    font-family: "Lato", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .lato-black {
+    font-family: "Lato", serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .lato-thin-italic {
+    font-family: "Lato", serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .lato-light-italic {
+    font-family: "Lato", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .lato-regular-italic {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .lato-bold-italic {
+    font-family: "Lato", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .lato-black-italic {
+    font-family: "Lato", serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
 h1{
     text-align: center;
+    
 }
 h3{
     text-align: center;
@@ -8,4 +76,23 @@ h3{
 
 #login{
     text-align: center;
+}
+
+#buttons{
+    padding-top:5px;
+}
+footer{
+    text-align: center;
+}
+
+body{
+    background-color:#00b8ff;
+    font-family: "Lato";
+    color:#001f2b;
+    text-align: center;
+
+}
+nav{
+    text-align: center;
+    background-color: white;
 }

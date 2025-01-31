@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
     <title>Mood Tracker || Home</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@300&display=swap');
+  </style>
 </head>
 <body>
     <h1>Mood Tracker</h1>
@@ -15,7 +18,7 @@
       </nav>
     <h3>Home</h3>
     <h2>Hello, ______! (Retrieve user's name from database after login)</h2>
-    <p>*3rd part placeholder will check the date. If the date isn't found in the database of entries, then the user can submit an entry. That way the user can only enter one entry per day</p>
+    <!-- <p>*3rd part placeholder will check the date. If the date isn't found in the database of entries, then the user can submit an entry. That way the user can only enter one entry per day</p> -->
     <p>How are you feeling today?</p>
     <!-- form choose emotion option -->
       <div>
@@ -34,11 +37,11 @@
         <label for="textarea">Add a note (optional): </label>
         <textarea id="textarea" name="varTextarea"></textarea>
         <button type="submit">Submit</button>
-        <p>*Submits emotion, note, with date into the database</p>
+        <!-- <p>*Submits emotion, note, with date into the database</p> -->
     </div>
     <!-- calendar that retrieves previous entries -->
     <div>
-        <p>*calendar feature will retrieve previous entries stored on the database</p>
+        <!-- <p>*calendar feature will retrieve previous entries stored on the database</p> -->
         <label for="date">Past Entries</label>
         <input type="date" name="varDate" id="date" />
     </div>
