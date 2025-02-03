@@ -78,3 +78,45 @@ button {
 button:hover {
   background-color: #357ABD;
 }
+
+.love-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  margin: 15px auto;
+  text-align: center;
+}
+
+
+@keyframes loveAnimation {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(2);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(2) translateY(-200px);
+      opacity: 0;
+  }
+}
+
+.love-image {
+  display: none;
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.love-active {
+  display: block;
+  animation: loveAnimation 1.5s forwards;
+}
