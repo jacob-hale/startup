@@ -99,11 +99,11 @@ button:hover {
       opacity: 1;
   }
   50% {
-      transform: scale(2);
+      transform: scale(3);
       opacity: 1;
   }
   100% {
-      transform: scale(2) translateY(-200px);
+      transform: scale(3.5) translateY(-200px);
       opacity: 0;
   }
 }
@@ -115,11 +115,12 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  align-content: center;
 }
 
 .love-active {
   display: block;
-  animation: loveAnimation 1.5s forwards;
+  animation: loveAnimation 1.7s forwards;
 }
 
 #login {
