@@ -1,11 +1,12 @@
 html{
   overflow-x: hidden;
 }
-/* General Styles */
+
+
  body {
   font-family: 'Lato', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #e7e7f7;
+  color: #070707c7;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -29,14 +30,14 @@ h1 {
   font-family: 'Indie Flower', cursive;
   font-size: 2.5rem;
   margin-top: 20px;
-  color: #4A90E2;
+  color: #4293ef;
 }
 
 nav {
   margin: 20px 0;
-  background-color: #4A90E2;
+  background-color: #4293ef;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -57,7 +58,7 @@ nav a:hover {
 select, textarea, input {
   font-size: 1rem;
   padding: 10px;
-  border: 2px solid #4A90E2;
+  border: 2px solid #4293ef;
   border-radius: 5px;
   margin-top: 10px;
   width: 100%;
@@ -65,25 +66,25 @@ select, textarea, input {
 }
 
 button {
-  background-color: #4A90E2;
+  background-color: #4293ef;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 11px 17px;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 10px;
 }
 
 button:hover {
-  background-color: #357ABD;
+  background-color: #2f73b7;
 }
 
 .love-card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 17px;
+  border-radius: 12px;
+  box-shadow: 2px 9px 12px #0707071a;
   width: 90%;
   max-width: 400px;
   margin: 15px auto;
@@ -109,7 +110,6 @@ button:hover {
 .love-image {
   display: none;
   width: 100px;
-  height: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -128,7 +128,7 @@ button:hover {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #0707071a;
   width: 100%;
   max-width: 400px;
   margin-top: 20px;
@@ -159,18 +159,30 @@ button:hover {
 footer {
   margin-top: auto;
   padding: 10px;
-  background-color: #333;
+  background-color: #363535;
   color: white;
   width: 100%;
   text-align: center;
 }
 
 footer a {
-  color: #FFD700;
+  color: #f3cf05;
   text-decoration: none;
   font-weight: bold;
 }
 
 footer a:hover {
   text-decoration: underline;
+}
+
+.select{
+  margin-bottom: 10px;
+}
+
+#mood-submit{
+  margin-bottom: 15px;
+}
+
+textarea{
+  resize: none;
 }
