@@ -24,6 +24,7 @@ Tags are important.
 Only focus on the structure and content.
 Also includes forms and media.
 
-##
+## CSS
 All about styling.
 Spacing, fonts, colors, animations, alignment, etc.
+Flex to make the adjusting of window size functional 

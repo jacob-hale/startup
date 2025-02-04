@@ -42,3 +42,13 @@ The moodtracker page has a section where daily emotion can be selected and an op
 The share some love page includes an interactive feature where the database will pull other user's daily entries and you can press a button to "give them love". When implemented with WebSocket, the other user will recieve a realtime notification saying, "*User* sends some love!".
 
 All HTML is structured in an organized way and functions properly. Placeholders are used for login, database, and WebSocket features.
+
+## CSS Deliverable
+- Simon CSS repository clones to development environment and deployed to simon subdomain
+- Properly styled CSS for full pages including: Header, footer, main content body, navigation elements, responsive window resizing, application elements, text content, and images
+- My name and link to Github repo is in footer of each of the startup pages
+- Periodically commited to Github
+- Updated notes.md
+- Final version pushed to Github
+- Startup deployed to server
+- Uploaded URL to my startup to Canvas
