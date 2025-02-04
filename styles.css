@@ -29,7 +29,7 @@ main {
 h1 {
   font-family: 'Indie Flower', cursive;
   font-size: 2.5rem;
-  color: #8553fa;
+  color: #7d0af1;
 }
 
 nav {
@@ -40,13 +40,15 @@ nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  margin: 5px 15px;
+  margin: 6px 14px;
 }
 
 nav a:hover {
@@ -57,9 +59,9 @@ nav a:hover {
 select, textarea, input {
   font-size: 1rem;
   padding: 10px;
-  border: 2px solid #8553fa;
-  border-radius: 5px;
-  margin-top: 10px;
+  border: 2px solid #b69cf3;
+  border-radius: 6px;
+  margin-top: 11px;
   width: 100%;
   max-width: 400px;
 }
@@ -72,7 +74,7 @@ button {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 11px;
 }
 
 button:hover {
@@ -80,17 +82,17 @@ button:hover {
 }
 
 .love-card {
-  background: white;
+  background: #faf4ff;
   padding: 17px;
   border-radius: 12px;
   box-shadow: 2px 9px 12px #0707071a;
   width: 90%;
   max-width: 400px;
-  margin: 15px auto;
+  margin: 16px auto;
   text-align: center;
 }
 
-
+/* idk if this works yet. Not javascript yet to put it into place */
 @keyframes loveAnimation {
   0% {
       transform: scale(1);
