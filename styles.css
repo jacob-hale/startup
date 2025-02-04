@@ -26,10 +26,11 @@ main {
   width: 100%;
 }
 
-h1 {
+.header {
   font-family: 'Indie Flower', cursive;
   font-size: 2.5rem;
   color: #7d0af1;
+  font-weight: bold;
 }
 
 nav {
