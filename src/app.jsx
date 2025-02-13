@@ -11,12 +11,13 @@ export default function App() {
     return (
     <BrowserRouter>
 
-      <div className="body bg-dark text-light">
-        <header className="container-fluid">
-          <nav className="navbar fixed-top navbar-dark">
-            <div className="navbar-brand">
-              Mood Tracker
-            </div>
+      <div className="body">
+        <header className="header">
+        Mood Tracker
+        </header>
+
+          <nav>
+            
             <menu className="navbar-nav">
               <li className="nav-item">
               <NavLink className='nav-link' to=''>Login</NavLink>
@@ -35,7 +36,7 @@ export default function App() {
             
             </menu>
           </nav>
-        </header>
+        
   
         <Routes>
             <Route path='/' element={<Login />} exact />
