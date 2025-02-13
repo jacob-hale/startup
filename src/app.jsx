@@ -17,24 +17,9 @@ export default function App() {
         </header>
 
           <nav>
-            
-            
-              {/* <li className="nav-item">
-              <NavLink className='nav-link' to=''>Login</NavLink> |
-              </li> */}
-              
-              <NavLink  to='moodtracker'>Mood Tracker</NavLink> |
-              
-              
-              <NavLink  to='sharelove'>Share Some Love</NavLink> |
-              
-              
-                <a  href="https://simon.moodtracker.click">
-                  Simon
-                </a>
-              
-            
-            
+            <NavLink  to='moodtracker'>Mood Tracker</NavLink> |
+            <NavLink  to='sharelove'>Share Some Love</NavLink> |
+            <a  href="https://simon.moodtracker.click">Simon</a>
           </nav>
         
   
@@ -42,19 +27,14 @@ export default function App() {
             <Route path='/' element={<Login />} exact />
             <Route path='/moodtracker' element={<MoodTracker />} />
             <Route path='/sharelove' element={<ShareLove />} />
-            {/* <Route path='/about' element={<About />} /> */}
             <Route path='*' element={<NotFound />} />
         </Routes>
   
-        <footer className="bg-dark text-white-50">
-          <div className="container-fluid">
-            <span className="text-reset">Jacob Hale | </span>
-            <a className="text-reset" href="https://github.com/jacob-hale/startup">
-              My Github Repo
-            </a>
-          </div>
+        <footer>
+        <div>Jacob Hale | <a href="https://github.com/jacob-hale/startup">My Github Repo</a></div>
         </footer>
       </div>
+
       </BrowserRouter>
 
     );
