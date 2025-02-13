@@ -1,0 +1,24 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "Startup for CS 260\r ## Specification Deliverable\r ### Elevator Pitch\r Imagine a simple app that asks you one question every day: “How are you feeling today?” With just a tap, choose an emoji to reflect your mood and optionally jot down a quick note. \r The app organizes your entries into a beautiful calendar view, so you can spot trends and reflect on your emotional journey.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacob-hale/startup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacob-hale/startup/issues"
+  },
+  "homepage": "https://github.com/jacob-hale/startup#readme",
+  "dependencies": {
+    "give-me-a-joke": "^0.5.1",
+    "react-router-dom": "^7.1.5"
+  }
+}
