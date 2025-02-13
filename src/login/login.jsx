@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 export function Login() {
   return (
@@ -6,13 +8,17 @@ export function Login() {
      <h3>Login</h3>
     {/* <!-- login form --> */}
      <div id="login">
-        <label for="text">Name:</label>
+        <label htmlFor="text">Name:</label>
         <input type="text" id="text" name="varText" placeholder="Your name here"/>
-        <label for="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input type="password" id="password" name="varPassword" placeholder="Your password here" />
         <div id="buttons">
-            <a href="moodtracker.html"><button type="submit" >Create</button></a>
-            <a href="moodtracker.html"><button type="submit" >Sign in</button></a>
+          <NavLink to="/moodtracker">
+              <button type="button">Create</button>
+          </NavLink>
+          <NavLink to="/moodtracker">
+              <button type="button">Sign in</button>
+          </NavLink>
         </div>
         
         {/* <!-- <p>*checks to see if login info is in database</p> -->

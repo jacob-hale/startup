@@ -8,8 +8,8 @@ export function MoodTracker() {
     <h2>How are you feeling today?</h2>
     {/* <!-- form choose emotion option --> */}
       <div>
-        <select id="select" name="varSelect" className="select">
-          <option value="" selected disabled hidden>Select Emotion</option>
+        <select id="select" name="varSelect" className="select" defaultValue="">
+          <option value="" disabled hidden>Select Emotion</option>
           <option>😊 happy</option>
           <option>😢 sad</option>
           <option>😡 angry</option>
@@ -20,7 +20,7 @@ export function MoodTracker() {
 
     {/* <!-- form for optional text entry --> */}
     <div>
-        <label for="textarea">Add a note (optional): </label>
+        <label htmlFor="textarea">Add a note (optional): </label>
         <textarea id="textarea" name="varTextarea"></textarea>
         <button type="submit" id="mood-submit">Submit</button>
         {/* <!-- <p>*Submits emotion, note, with date into the database</p> --> */}
@@ -28,7 +28,7 @@ export function MoodTracker() {
     {/* <!-- calendar that retrieves previous entries --> */}
     <div>
         {/* <!-- <p>*calendar feature will retrieve previous entries stored on the database</p> --> */}
-        <label for="date">Past Entries</label>
+        <label htmlFor="date">Past Entries</label>
         <input type="date" name="varDate" id="date" />
     </div>
     <p>On _______, you felt (happy, sad, angry, tired, or plain).</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
@@ -12,10 +12,12 @@ export default function App() {
     <BrowserRouter>
 
       <div className="body">
-        <header className="header">
-        Mood Tracker
-        </header>
-
+      
+          <header className="header">
+            Mood Tracker
+          </header>
+        
+        
           <nav>
             <NavLink  to='moodtracker'>Mood Tracker</NavLink> |
             <NavLink  to='sharelove'>Share Some Love</NavLink> |
@@ -41,5 +43,5 @@ export default function App() {
   }
 
   function NotFound() {
-    return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
+    return <main>404: Return to sender. Address unknown.</main>;
   }

@@ -18,7 +18,7 @@ export function ShareLove() {
         <h4>Bob is feeling tired</h4>
         <p>Send some love!</p>
         <button type="button" id="heart" onClick={loveAnimation}>
-          <span className="heart-emoji">❤️</span>
+        <span className="heart-emoji">❤️</span>
         </button>
         <img
           src="favicon.ico"

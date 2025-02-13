@@ -22,5 +22,8 @@
   "dependencies": {
     "give-me-a-joke": "^0.5.1",
     "react-router-dom": "^7.1.5"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
   }
 }
