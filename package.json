@@ -4,7 +4,9 @@
   "description": "Startup for CS 260\r ## Specification Deliverable\r ### Elevator Pitch\r Imagine a simple app that asks you one question every day: “How are you feeling today?” With just a tap, choose an emoji to reflect your mood and optionally jot down a quick note. \r The app organizes your entries into a beautiful calendar view, so you can spot trends and reflect on your emotional journey.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
