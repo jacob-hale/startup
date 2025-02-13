@@ -52,3 +52,14 @@ All HTML is structured in an organized way and functions properly. Placeholders 
 - Final version pushed to Github
 - Startup deployed to server
 - Uploaded URL to my startup to Canvas
+
+## React Part 1 Deliverable
+- Ported Simon CSS and ported it to React. Deployed to production environment
+- Converted HTML/CSS startup frontend to use React as demonstrated in Simon instruction
+- Name is displayed and link to Github Repo is in footer
+- Periodically committed and pushed to Github
+- Updated notes.md
+- Pushed final version to Github
+- Deployed startup application to server
+- Application is available
+- Uploaded URL to Canvas

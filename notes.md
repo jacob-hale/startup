@@ -28,3 +28,30 @@ Also includes forms and media.
 All about styling.
 Spacing, fonts, colors, animations, alignment, etc.
 Flex to make the adjusting of window size functional 
+
+## React
+make sure this is in package.json:
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+
+add public and src folders
+public hold favicon and other images used in app
+
+src holds frontend React code, top level styles, and components
+### Converting HTML and CSS
+change class tag to className
+change body tag in CSS to .body
+take main content from html and put it into each component
+
+app.jsx has header, routers for main content, and footer
+Use NavLink instead of "a href"
+
+don't forget to import
+
+new deployfile
+deployReact.sh
+
+./deployReact.sh -k <yourpemkey> -h <yourdomain> -s simon
