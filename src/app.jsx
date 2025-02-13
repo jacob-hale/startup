@@ -18,23 +18,23 @@ export default function App() {
 
           <nav>
             
-            <menu className="navbar-nav">
-              <li className="nav-item">
-              <NavLink className='nav-link' to=''>Login</NavLink>
-              </li>
-              <li className="nav-item">
-              <NavLink className='nav-link' to='moodtracker'>MoodTracker</NavLink>
-              </li>
-              <li className="nav-item">
-              <NavLink className='nav-link' to='sharelove'>ShareLove</NavLink>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="https://simon.moodtracker.click">
+            
+              {/* <li className="nav-item">
+              <NavLink className='nav-link' to=''>Login</NavLink> |
+              </li> */}
+              
+              <NavLink  to='moodtracker'>Mood Tracker</NavLink> |
+              
+              
+              <NavLink  to='sharelove'>Share Some Love</NavLink> |
+              
+              
+                <a  href="https://simon.moodtracker.click">
                   Simon
                 </a>
-              </li>
+              
             
-            </menu>
+            
           </nav>
         
   
