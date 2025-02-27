@@ -39,12 +39,18 @@ export function MoodTracker() {
 
   return (
     <main>
-    <h2>Hello, ______! (Retrieve user's name from database after login)</h2>
+    <h2>Hello, {username}!</h2>
     {/* <!-- <p>*3rd part placeholder will check the date. If the date isn't found in the database of entries, then the user can submit an entry. That way the user can only enter one entry per day</p> --> */}
     <h2>How are you feeling today?</h2>
     {/* <!-- form choose emotion option --> */}
       <div>
-        <select id="select" name="varSelect" className="select" defaultValue="">
+        <select 
+          id="select" 
+          name="varSelect" 
+          className="select" 
+          value={mood}
+          onChange={(e) => setMood(e.target.value)}
+        >
           <option value="" disabled hidden>Select Emotion</option>
           <option>😊 happy</option>
           <option>😢 sad</option>
@@ -57,8 +63,15 @@ export function MoodTracker() {
     {/* <!-- form for optional text entry --> */}
     <div>
         <label htmlFor="textarea">Add a note (optional): </label>
-        <textarea id="textarea" name="varTextarea"></textarea>
-        <button type="submit" id="mood-submit">Submit</button>
+        <textarea 
+          id="textarea" 
+          name="varTextarea"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        ></textarea>
+        <button type="submit" id="mood-submit" onClick={handleSubmit}>
+          Submit
+        </button>
         {/* <!-- <p>*Submits emotion, note, with date into the database</p> --> */}
     </div>
     {/* <!-- calendar that retrieves previous entries --> */}
