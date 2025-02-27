@@ -20,9 +20,24 @@ const handleLogin = () => {
     {/* <!-- login form --> */}
      <div id="login">
         <label htmlFor="text">Name:</label>
-        <input type="text" id="text" name="varText" placeholder="Your name here"/>
+        <input 
+          type="text" 
+          id="text" 
+          name="varText" 
+          placeholder="Your name here"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)} 
+        />
+
         <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="varPassword" placeholder="Your password here" />
+        <input 
+          type="password" 
+          id="password" 
+          name="varPassword" 
+          placeholder="Your password here" 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <div id="buttons">
           <NavLink to="/moodtracker">
               <button type="button">Create</button>
