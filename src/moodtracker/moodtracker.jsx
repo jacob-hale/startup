@@ -76,11 +76,18 @@ export function MoodTracker() {
     </div>
     {/* <!-- calendar that retrieves previous entries --> */}
     <div>
-        {/* <!-- <p>*calendar feature will retrieve previous entries stored on the database</p> --> */}
+        {/* <!-- <p>*calendar feature will retrieve previous entries stored on the database</p> -->
         <label htmlFor="date">Past Entries</label>
-        <input type="date" name="varDate" id="date" />
+        <input type="date" name="varDate"  /> */}
+        <h3>Past Entries</h3>
+        {entries.map((entry, index) => (
+          <div key={index}>
+            <p>On {entry.date}, you felt {entry.mood}.</p>
+            {entry.note && <p> You said: "{entry.note}"</p>}
+            </div>
+        ))}
     </div>
-    <p>On _______, you felt (happy, sad, angry, tired, or plain).</p>
+    
     {/* <!-- <p>*if user entered a note* You said: "User's note"</p> --> */}
   </main>
   );
