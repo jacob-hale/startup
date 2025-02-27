@@ -5,9 +5,15 @@ export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-}
 
-export function Login() {
+
+
+const handleLogin = () => {
+  localStorage.setItem("user", JSON.stringify({ username, password }));
+  navigate("/moodtracker");
+};
+
+
   return (
     <main>
      <h3>Login</h3>
