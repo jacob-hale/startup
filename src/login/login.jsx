@@ -1,17 +1,29 @@
 import React, {useState} from 'react';
-import { NavLink , useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const handleCreateAccount = () => {
+    // Mock 
+    const newUser = { username, password };
+    localStorage.setItem('user', JSON.stringify(newUser));
+    alert('Account created successfully!');
+    navigate('/moodtracker'); 
+  };
 
-
-const handleLogin = () => {
-  localStorage.setItem("user", JSON.stringify({ username, password }));
-  navigate("/moodtracker");
-};
+  const handleSignIn = () => {
+    // Mock
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser && storedUser.username === username && storedUser.password === password) {
+      // alert('Sign in successful!');
+      navigate('/moodtracker'); 
+    } else {
+      alert('Invalid name or password.');
+    }
+  };
 
 
   return (
@@ -24,7 +36,7 @@ const handleLogin = () => {
           type="text" 
           id="text" 
           name="varText" 
-          placeholder="Your name here"
+          placeholder="Your first name here"
           value={username}
           onChange={(e) => setUsername(e.target.value)} 
         />
@@ -39,16 +51,11 @@ const handleLogin = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div id="buttons">
-          <NavLink to="/moodtracker">
-              <button type="button">Create</button>
-          </NavLink>
-          <NavLink to="/moodtracker">
-              <button type="button">Sign in</button>
-          </NavLink>
+          <button type="button" onClick={handleCreateAccount}>Create</button>
+          <button type="button" onClick={handleSignIn}>Sign in</button>
+          
         </div>
         
-        {/* <!-- <p>*checks to see if login info is in database</p> -->
-        <!-- <p>*once logged in, navigates to <a href="moodtracker.html">Mood Tracker</a></p> --> */}
      </div>
     </main>
   );
