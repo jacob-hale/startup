@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export function ShareLove() {
   const loveImageRef = useRef(null);
-  const [loveCount, setLoveCount] = useState(0);
+  // const [loveCount, setLoveCount] = useState(0);
   const [currentMessage, setCurrentMessage] = useState("Kirby is feeling 😴 tired");
+  const [notifications, setNotifications] = useState([]);
 
   // Mock data
   const messages = [
@@ -12,6 +13,19 @@ export function ShareLove() {
     "Bowser is feeling 😡 angry",
     "Link is feeling 😐 plain",
   ];
+  // Mock notifcations
+useEffect(() => {
+  const interval = setInterval(() => {
+    const userName = `User-${Math.floor(Math.random() * 100)}`;
+    const newNotification = `${userName} sent you love! ❤️`;
+
+    setNotifications((prevNotifications) => [
+      newNotification,
+      ...prevNotifications,
+    ]);
+  }, 5000);
+  return () => clearInterval(interval);
+}, []);
 
   const loveAnimation = () => {
     if (loveImageRef.current) {
@@ -19,7 +33,7 @@ export function ShareLove() {
       void loveImageRef.current.offsetWidth; // Force reflow
       loveImageRef.current.classList.add("love-active");
     }
-    setLoveCount(loveCount + 1);
+    // setLoveCount(loveCount + 1);
   };
 
   const handleRefresh = () => {
@@ -30,7 +44,7 @@ export function ShareLove() {
 
     } while (randomMessage === currentMessage);
     setCurrentMessage(randomMessage);
-    setLoveCount(0);
+    // setLoveCount(0);
   };
 
   return (
@@ -48,7 +62,7 @@ export function ShareLove() {
           className="love-image"
           ref={loveImageRef}
         />
-        <p>Total love sent: {loveCount}</p>
+        {/* <p>Total love sent: {loveCount}</p> */}
       </div>
       <button type="button" onClick={handleRefresh}>Refresh</button>
     </main>
