@@ -5,6 +5,8 @@ export function MoodTracker() {
   const [note, setNote] = useState("");
   const [entries, setEntries] = useState([]);
   const [username, setUsername] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedEntry, setSelectedEntry] = useState(null);
 
   // retrieve user name from storage
   useEffect (() => {
@@ -19,30 +21,63 @@ export function MoodTracker() {
   // load past entries
   useEffect (() => {
     // mock
-    const savedEntries = JSON.parse(localStorage.getItem("moodEntries")) || [];
-    setEntries(savedEntries);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser){
+      const userEntriesKey = `moodEntries_${storedUser.username}`;
+      const savedEntries = JSON.parse(localStorage.getItem(userEntriesKey)) || [];
+      setEntries(savedEntries);
+    }
   }, []);
 
+  const formatDate = (date) => {
+    const d = new Date(date);
+    return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
+  };
 
   const handleSubmit = () => {
+    if (!mood) {
+      alert("Please select a mood.");
+      return;
+    }
+    const today = formatDate(new Date());
+    const hasEntryForToday = entries.some((entry) => entry.date === today);
+
+    if (hasEntryForToday) {
+      alert("You can only submit one entry per day. Try again tomorrow!");
+      setMood("");
+      setNote("");
+      return;
+    }
+
     const newEntry = {
-      date: new Date().toLocaleDateString(),
+      date: today,
       mood,
       note,
     };
-    const updateEntries = [...entries, newEntry];
-    localStorage.setItem("moodEntries", JSON.stringify(updatedEntries));
+
+    const updatedEntries = [...entries, newEntry];
+    const userEntriesKey = `moodEntries_${username}`;
+    localStorage.setItem(userEntriesKey, JSON.stringify(updatedEntries));
     setEntries(updatedEntries);
     setMood("");
     setNote("");
   };
 
+  const handleDateChange = (e) => {
+    const date = e.target.value;
+    setSelectedDate(date);
+
+    const formattedDate = formatDate(new Date(date));
+    
+    const entry = entries.find((entry) => entry.date === formattedDate);
+    
+    setSelectedEntry(entry || null);
+  };
+
   return (
     <main>
     <h2>Hello, {username}!</h2>
-    {/* <!-- <p>*3rd part placeholder will check the date. If the date isn't found in the database of entries, then the user can submit an entry. That way the user can only enter one entry per day</p> --> */}
     <h2>How are you feeling today?</h2>
-    {/* <!-- form choose emotion option --> */}
       <div>
         <select 
           id="select" 
@@ -69,26 +104,31 @@ export function MoodTracker() {
           value={note}
           onChange={(e) => setNote(e.target.value)}
         ></textarea>
-        <button type="submit" id="mood-submit" onClick={handleSubmit}>
+        <button type="button" id="mood-submit" onClick={handleSubmit}>
           Submit
         </button>
-        {/* <!-- <p>*Submits emotion, note, with date into the database</p> --> */}
     </div>
-    {/* <!-- calendar that retrieves previous entries --> */}
     <div>
-        {/* <!-- <p>*calendar feature will retrieve previous entries stored on the database</p> -->
-        <label htmlFor="date">Past Entries</label>
-        <input type="date" name="varDate"  /> */}
         <h3>Past Entries</h3>
-        {entries.map((entry, index) => (
-          <div key={index}>
-            <p>On {entry.date}, you felt {entry.mood}.</p>
-            {entry.note && <p> You said: "{entry.note}"</p>}
-            </div>
-        ))}
+        <label htmlFor="date">Select a date: </label>
+        <input
+          type="date"
+          id="date"
+          name="varDate"
+          value={selectedDate}
+          onChange={handleDateChange}
+        />
+
+        {selectedEntry ? (
+          <div>
+            <p>On {selectedEntry.date}, you felt {selectedEntry.mood}.</p>
+            {selectedEntry.note && <p>You said: "{selectedEntry.note}"</p>}
+          </div>
+        ) : (
+          selectedDate && <p>No entry found for this date.</p>
+        )}
     </div>
     
-    {/* <!-- <p>*if user entered a note* You said: "User's note"</p> --> */}
   </main>
   );
 }
