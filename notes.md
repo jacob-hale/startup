@@ -55,3 +55,14 @@ new deployfile
 deployReact.sh
 
 ./deployReact.sh -k <yourpemkey> -h <yourdomain> -s simon
+
+### Mock
+use localStorage until database is in place
+hard code responses unitl 3rd party service can be used
+use setInterval to act as the real time updates
+
+### Javascript
+useState uses properties on the page and is used to update them
+useEffect are like functions that run without needing to be called
+
+Make helper functions

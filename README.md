@@ -63,3 +63,15 @@ All HTML is structured in an organized way and functions properly. Placeholders 
 - Deployed startup application to server
 - Application is available
 - Uploaded URL to Canvas
+
+## React Part 2 Deliverable
+- Reviewed and deployed Simon React to simon subdomain
+- Implemented Javascript code using the React framework to make startup functional (including use of useState, useEffect, and additional Javascript)
+- Mocked out a working solution that will be implemented later using setInterval and localStorage
+- Name is displayed and there is a link to my GitHub repo
+- Periodically committed and pushed to GitHub
+- Updated notes.md
+- Pushed final version to GitHub
+- Deployed startup application to server
+- Application is available
+- Uploaded URL to Canvas

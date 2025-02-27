@@ -26,7 +26,8 @@ function AppContent() {
                 <nav>
                     <NavLink to='/moodtracker'>Mood Tracker</NavLink> |
                     <NavLink to='/sharelove'>Share Some Love</NavLink> |
-                    <a href="https://simon.moodtracker.click">Simon</a>
+                    <a href="https://simon.moodtracker.click">Simon</a> |
+                    <NavLink to='/'>Sign Out</NavLink>
                 </nav>
             )}
 
