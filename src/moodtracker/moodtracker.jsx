@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function MoodTracker() {
+  const [mood, setMood] = useState("");
+  const [note, setNote] = useState("");
+  const [entries, setEntries] = useState([]);
+
+  useEffect
+
+
   return (
     <main>
     <h2>Hello, ______! (Retrieve user's name from database after login)</h2>

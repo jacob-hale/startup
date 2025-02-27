@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleCreateAccount = () => {
@@ -28,7 +28,7 @@ export function Login() {
 
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser && storedUser.username === username && storedUser.password === password) {
-      // alert('Sign in successful!');
+      
       navigate("/moodtracker"); 
     } else {
       alert("Invalid name or password.");
