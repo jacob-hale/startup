@@ -40,6 +40,7 @@ export function MoodTracker() {
       alert("Please select a mood.");
       return;
     }
+    // This will be replaced by 3rd party service call to retrieve actual date
     const today = formatDate(new Date());
     const hasEntryForToday = entries.some((entry) => entry.date === today);
 
