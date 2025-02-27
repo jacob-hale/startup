@@ -4,8 +4,21 @@ export function MoodTracker() {
   const [mood, setMood] = useState("");
   const [note, setNote] = useState("");
   const [entries, setEntries] = useState([]);
+  const [username, setUsername] = useState("");
 
+  // retrieve user name from storage
   useEffect (() => {
+    // mock
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUsername(storedUser.username);
+    }
+  }, []);
+
+
+  // load past entries
+  useEffect (() => {
+    // mock
     const savedEntries = JSON.parse(localStorage.getItem("moodEntries")) || [];
     setEntries(savedEntries);
   }, []);
