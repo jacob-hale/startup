@@ -1,6 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
+import { NavLink , useNavigate } from 'react-router-dom';
 
+export function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+}
 
 export function Login() {
   return (
