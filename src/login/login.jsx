@@ -8,20 +8,30 @@ export function Login() {
 
   const handleCreateAccount = () => {
     // Mock 
+    if (!username || !password) {
+      alert("Don't leave name or password blank");
+      return;
+    }
+
     const newUser = { username, password };
-    localStorage.setItem('user', JSON.stringify(newUser));
-    alert('Account created successfully!');
-    navigate('/moodtracker'); 
+    localStorage.setItem("user", JSON.stringify(newUser));
+    alert("Account created successfully!");
+    navigate("/moodtracker"); 
   };
 
   const handleSignIn = () => {
     // Mock
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (!username || !password) {
+      alert("Don't leave name or password blank");
+      return;
+    }
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser && storedUser.username === username && storedUser.password === password) {
       // alert('Sign in successful!');
-      navigate('/moodtracker'); 
+      navigate("/moodtracker"); 
     } else {
-      alert('Invalid name or password.');
+      alert("Invalid name or password.");
     }
   };
 
