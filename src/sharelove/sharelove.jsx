@@ -23,7 +23,7 @@ useEffect(() => {
       newNotification,
       ...prevNotifications,
     ]);
-  }, 5000);
+  }, 10000);
   return () => clearInterval(interval);
 }, []);
 
@@ -65,6 +65,20 @@ useEffect(() => {
         {/* <p>Total love sent: {loveCount}</p> */}
       </div>
       <button type="button" onClick={handleRefresh}>Refresh</button>
+
+      {/* Notifications */}
+      <div classname="notifications">
+        <h4>Notifications</h4>
+        {notifications.length > 0 ? (
+          <ul>
+            {notifications.map((notification, index) => (
+              <li key={index}>{notification}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>No New notifications.</p>
+        )}
+      </div>
     </main>
   );
 }
