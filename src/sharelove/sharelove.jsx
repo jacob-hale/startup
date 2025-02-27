@@ -1,7 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 export function ShareLove() {
   const loveImageRef = useRef(null);
+  const [loveCount, setLoveCount] = useState(0);
+  const [currentMessage, setCurrentMessage] = useState("Kirby is feeling 😴 tired");
+
+  // Mock data
+  const messages = [
+    "Kirby is feeling 😴 tired",
+    "Luigi is feeling 😢 sad",
+    "Bowser is feeling 😡 angry",
+    "Link is feeling 😐 plain",
+  ];
 
   const loveAnimation = () => {
     if (loveImageRef.current) {
@@ -9,7 +19,14 @@ export function ShareLove() {
       void loveImageRef.current.offsetWidth; // Force reflow
       loveImageRef.current.classList.add("love-active");
     }
+    setLoveCount(loveCount + 1);
   };
+
+  const handleRefresh = () => {
+    const randomMessage = message[Math.floor(Math.random() * messages.length)];
+    setCurrentMessage(randomMessage);
+    setLoveCount(0);
+  }
 
   return (
     <main>
