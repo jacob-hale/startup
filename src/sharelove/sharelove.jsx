@@ -14,18 +14,28 @@ export function ShareLove() {
     "Link is feeling 😐 plain",
   ];
   // Mock notifcations
-useEffect(() => {
-  const interval = setInterval(() => {
-    const userName = `User-${Math.floor(Math.random() * 100)}`;
-    const newNotification = `${userName} sent you love! ❤️`;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const userName = `User-${Math.floor(Math.random() * 100)}`;
+      const newNotification = `${userName} sent you love! ❤️`;
 
-    setNotifications((prevNotifications) => [
-      newNotification,
-      ...prevNotifications,
-    ]);
-  }, 10000);
-  return () => clearInterval(interval);
-}, []);
+      setNotifications((prevNotifications) => [
+        newNotification,
+        ...prevNotifications,
+      ]);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+
+  // dismiss Notification
+  const dismissNotifications = (id) => {
+    setNotifications((prevNotifications) => 
+    prevNotifications.filter((notification) => notification.id !== id)
+  );
+  };
+
+
 
   const loveAnimation = () => {
     if (loveImageRef.current) {
@@ -71,8 +81,13 @@ useEffect(() => {
         <h4>Notifications</h4>
         {notifications.length > 0 ? (
           <ul>
-            {notifications.map((notification, index) => (
-              <li key={index}>{notification}</li>
+            {notifications.map((notification) => (
+              <li 
+              key={notification.id}
+              onClick={() => dismissNotifications(notification.id)}
+              style={{ cursor: "pointer" }}
+              >{notification}
+              </li>
             ))}
           </ul>
         ) : (
