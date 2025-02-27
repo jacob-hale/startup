@@ -12,8 +12,9 @@ export function Login() {
       alert("Don't leave name or password blank");
       return;
     }
+    const userId = `${username}_${password}`;
 
-    const newUser = { username, password };
+    const newUser = { username, password, userId };
     localStorage.setItem("user", JSON.stringify(newUser));
     alert("Account created successfully!");
     navigate("/moodtracker"); 
@@ -27,7 +28,8 @@ export function Login() {
     }
 
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.username === username && storedUser.password === password) {
+    const userId = `${username}_${password}`;
+    if (storedUser && storedUser.userId === userId) {
       
       navigate("/moodtracker"); 
     } else {

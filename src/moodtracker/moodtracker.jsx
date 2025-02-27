@@ -23,7 +23,8 @@ export function MoodTracker() {
     // mock
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser){
-      const userEntriesKey = `moodEntries_${storedUser.username}`;
+      setUsername(storedUser.username);
+      const userEntriesKey = `moodEntries_${storedUser.userId}`;
       const savedEntries = JSON.parse(localStorage.getItem(userEntriesKey)) || [];
       setEntries(savedEntries);
     }
@@ -56,9 +57,11 @@ export function MoodTracker() {
     };
 
     const updatedEntries = [...entries, newEntry];
-    const userEntriesKey = `moodEntries_${username}`;
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const userEntriesKey = `moodEntries_${storedUser.userId}`;
     localStorage.setItem(userEntriesKey, JSON.stringify(updatedEntries));
     setEntries(updatedEntries);
+    alert("Entry submitted successfully!")
     setMood("");
     setNote("");
   };
@@ -67,7 +70,7 @@ export function MoodTracker() {
     const date = e.target.value;
     setSelectedDate(date);
 
-    const formattedDate = formatDate(new Date(date));
+    const formattedDate = formatDate(new Date(date + "T00:00:00"));
     
     const entry = entries.find((entry) => entry.date === formattedDate);
     
