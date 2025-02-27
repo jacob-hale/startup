@@ -4,6 +4,7 @@ export function ShareLove() {
   const loveImageRef = useRef(null);
   const [loveCount, setLoveCount] = useState(0);
   const [currentMessage, setCurrentMessage] = useState("Kirby is feeling 😴 tired");
+  const [previousMessage, setPreviousMessage] = useState("");
 
   // Mock data
   const messages = [
@@ -23,7 +24,13 @@ export function ShareLove() {
   };
 
   const handleRefresh = () => {
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    // Mock
+    let randomMessage;
+    do {
+      randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+    } while (randomMessage === currentMessage);
+    setPreviousMessage(currentMessage);
     setCurrentMessage(randomMessage);
     setLoveCount(0);
   };
