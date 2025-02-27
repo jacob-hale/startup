@@ -5,8 +5,24 @@ export function MoodTracker() {
   const [note, setNote] = useState("");
   const [entries, setEntries] = useState([]);
 
-  useEffect
+  useEffect (() => {
+    const savedEntries = JSON.parse(localStorage.getItem("moodEntries")) || [];
+    setEntries(savedEntries);
+  }, []);
 
+
+  const handleSubmit = () => {
+    const newEntry = {
+      date: new Date().toLocaleDateString(),
+      mood,
+      note,
+    };
+    const updateEntries = [...entries, newEntry];
+    localStorage.setItem("moodEntries", JSON.stringify(updatedEntries));
+    setEntries(updatedEntries);
+    setMood("");
+    setNote("");
+  };
 
   return (
     <main>
