@@ -23,16 +23,16 @@ export function ShareLove() {
   };
 
   const handleRefresh = () => {
-    const randomMessage = message[Math.floor(Math.random() * messages.length)];
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     setCurrentMessage(randomMessage);
     setLoveCount(0);
-  }
+  };
 
   return (
     <main>
       <h3>Share Some Love</h3>
       <div className="love-card">
-        <h4>Bob is feeling tired</h4>
+        <h4>{currentMessage}</h4>
         <p>Send some love!</p>
         <button type="button" id="heart" onClick={loveAnimation}>
         <span className="heart-emoji">❤️</span>
@@ -43,8 +43,9 @@ export function ShareLove() {
           className="love-image"
           ref={loveImageRef}
         />
+        <p>Total love sent: {loveCount}</p>
       </div>
-      <button type="button">Refresh</button>
+      <button type="button" onClick={handleRefresh}>Refresh</button>
     </main>
   );
 }
