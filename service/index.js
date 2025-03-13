@@ -35,22 +35,23 @@ let users = [];
 
 // Endpoint to create a new user
 app.post('/api/users', (req, res) => {
-  const { username, password } = req.body;
-
-  if (!username || !password) {
-    return res.status(400).json({ error: 'Username and password are required.' });
-  }
-
-  const existingUser = users.find((user) => user.username === username);
-  if (existingUser) {
-    return res.status(400).json({ error: 'Username already exists.' });
-  }
-
-  const newUser = { username, password, userId: `${username}_${password}` };
-  users.push(newUser);
-
-  res.json(newUser);
-});
+    const { username, password } = req.body;
+  
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required.' });
+    }
+  
+    const existingUser = users.find((user) => user.username === username);
+    if (existingUser) {
+      return res.status(400).json({ error: 'Username already exists.' });
+    }
+  
+    const newUser = { username, password, userId: `${username}_${password}` };
+    users.push(newUser);
+  
+    console.log('New user created:', newUser); // Log the new user
+    res.json(newUser);
+  });
 
 // Endpoint to log in a user
 app.post('/api/users/login', (req, res) => {

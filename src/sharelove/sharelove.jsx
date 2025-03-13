@@ -4,6 +4,7 @@ export function ShareLove() {
   const loveImageRef = useRef(null);
   const [currentMessage, setCurrentMessage] = useState("Kirby is feeling 😴 tired");
   const [notifications, setNotifications] = useState([]);
+  const [quote, setQuote] = useState("");
 
   // Mock data
   const messages = [
@@ -12,7 +13,27 @@ export function ShareLove() {
     "Bowser is feeling 😡 angry",
     "Link is feeling 😐 plain",
   ];
-  // Mock notifcations
+
+  // Fetch a random quote from the backend
+  useEffect(() => {
+    const fetchQuote = async () => {
+      try {
+        const response = await fetch('/api/quote');
+        if (!response.ok) {
+          throw new Error('Failed to fetch quote');
+        }
+        const data = await response.json();
+        setQuote(data.quote);
+      } catch (error) {
+        console.error(error);
+        // setQuote("Failed to load quote. Please try again later.");
+      }
+    };
+
+    fetchQuote();
+  }, []);
+
+  // Mock notifications
   useEffect(() => {
     const interval = setInterval(() => {
       const userName = `User-${Math.floor(Math.random() * 100)}`;
@@ -26,30 +47,27 @@ export function ShareLove() {
     return () => clearInterval(interval);
   }, []);
 
-
-  // dismiss Notification
+  // Dismiss notification
   const dismissNotifications = (id) => {
-    setNotifications((prevNotifications) => 
-    prevNotifications.filter((notification) => notification.id !== id)
-  );
+    setNotifications((prevNotifications) =>
+      prevNotifications.filter((notification) => notification.id !== id)
+    );
   };
 
-
-
+  // Love animation
   const loveAnimation = () => {
     if (loveImageRef.current) {
       loveImageRef.current.classList.remove("love-active");
-      void loveImageRef.current.offsetWidth; // Force reflow
+      void loveImageRef.current.offsetWidth; 
       loveImageRef.current.classList.add("love-active");
     }
   };
 
+  // Refresh message
   const handleRefresh = () => {
-    // Mock
     let randomMessage;
     do {
       randomMessage = messages[Math.floor(Math.random() * messages.length)];
-
     } while (randomMessage === currentMessage);
     setCurrentMessage(randomMessage);
   };
@@ -61,7 +79,7 @@ export function ShareLove() {
         <h4>{currentMessage}</h4>
         <p>Send some love!</p>
         <button type="button" id="heart" onClick={loveAnimation}>
-        <span className="heart-emoji">❤️</span>
+          <span className="heart-emoji">❤️</span>
         </button>
         <img
           src="favicon.ico"
@@ -69,25 +87,27 @@ export function ShareLove() {
           className="love-image"
           ref={loveImageRef}
         />
+        <p>{quote}</p> {/* Display the random quote */}
       </div>
       <button type="button" onClick={handleRefresh}>Refresh</button>
 
       {/* Notifications */}
-      <div classname="notifications">
+      <div className="notifications">
         <h4>Notifications</h4>
         {notifications.length > 0 ? (
           <ul>
             {notifications.map((notification) => (
-              <li 
-              key={notification.id}
-              onClick={() => dismissNotifications(notification.id)}
-              style={{ cursor: "pointer" }}
-              >{notification}
+              <li
+                key={notification.id}
+                onClick={() => dismissNotifications(notification.id)}
+                style={{ cursor: "pointer" }}
+              >
+                {notification}
               </li>
             ))}
           </ul>
         ) : (
-          <p>No New notifications.</p>
+          <p>No new notifications.</p>
         )}
       </div>
     </main>
