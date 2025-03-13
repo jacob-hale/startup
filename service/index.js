@@ -1,7 +1,7 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import fetch from 'node-fetch'; // Import node-fetch for making HTTP requests
+import fetch from 'node-fetch'; 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,7 +31,6 @@ app.get('/api/mood-entries', (req, res) => {
   res.json(moodEntries);
 });
 
-// Mock data for users
 let users = [];
 
 // Endpoint to create a new user
@@ -73,7 +72,7 @@ app.post('/api/users/login', (req, res) => {
 app.post('/api/mood-entries', (req, res) => {
   const newEntry = req.body;
 
-  // Check if an entry already exists for the same date
+  // Check if entry already exists for the same date
   const hasEntryForToday = moodEntries.some((entry) => entry.date === newEntry.date);
 
   if (hasEntryForToday) {
