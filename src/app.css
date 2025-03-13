@@ -216,9 +216,6 @@ transition: transform 0.3s ease-in-out;
 }
 
 .calendar-container {
-  margin-bottom: 20px; 
+  margin-bottom: 10px; 
 }
 
-.select-emotion {
-  width: 200px;
-}

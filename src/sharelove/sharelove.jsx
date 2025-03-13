@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 
 export function ShareLove() {
   const loveImageRef = useRef(null);
-  // const [loveCount, setLoveCount] = useState(0);
   const [currentMessage, setCurrentMessage] = useState("Kirby is feeling 😴 tired");
   const [notifications, setNotifications] = useState([]);
 
@@ -43,7 +42,6 @@ export function ShareLove() {
       void loveImageRef.current.offsetWidth; // Force reflow
       loveImageRef.current.classList.add("love-active");
     }
-    // setLoveCount(loveCount + 1);
   };
 
   const handleRefresh = () => {
@@ -54,7 +52,6 @@ export function ShareLove() {
 
     } while (randomMessage === currentMessage);
     setCurrentMessage(randomMessage);
-    // setLoveCount(0);
   };
 
   return (
@@ -72,7 +69,6 @@ export function ShareLove() {
           className="love-image"
           ref={loveImageRef}
         />
-        {/* <p>Total love sent: {loveCount}</p> */}
       </div>
       <button type="button" onClick={handleRefresh}>Refresh</button>
 
