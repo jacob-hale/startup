@@ -27,7 +27,14 @@ function AppContent() {
                     <NavLink to='/moodtracker'>Mood Tracker</NavLink> |
                     <NavLink to='/sharelove'>Share Some Love</NavLink> |
                     <a href="https://simon.moodtracker.click">Simon</a> |
-                    <NavLink to='/'>Sign Out</NavLink>
+                    <NavLink
+                        to='/'
+                        onClick={() => {
+                            localStorage.removeItem("user");
+                        }}
+                        >
+                        Sign Out
+                    </NavLink>
                 </nav>
             )}
 

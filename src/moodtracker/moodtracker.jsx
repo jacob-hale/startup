@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function MoodTracker() {
   const [mood, setMood] = useState("");
@@ -7,25 +8,40 @@ export function MoodTracker() {
   const [username, setUsername] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedEntry, setSelectedEntry] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // retrieve user name from storage
-  useEffect (() => {
-    // mock
+  const navigate = useNavigate();
+
+  // Retrieve user name from storage
+  useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
       setUsername(storedUser.username);
+    } else {
+      // Redirect to login if no user is found
+      navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
-
-  // load past entries
+  // Load past entries
   useEffect(() => {
     const fetchEntries = async () => {
-      const response = await fetch('/api/mood-entries');
-      const data = await response.json();
-      setEntries(data);
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/mood-entries');
+        if (!response.ok) {
+          throw new Error('Failed to fetch mood entries.');
+        }
+        const data = await response.json();
+        setEntries(data);
+      } catch (error) {
+        console.error(error);
+        alert('Failed to load mood entries. Please try again later.');
+      } finally {
+        setIsLoading(false);
+      }
     };
-  
+
     fetchEntries();
   }, []);
 
@@ -39,14 +55,14 @@ export function MoodTracker() {
       alert('Please select a mood.');
       return;
     }
-  
+
     const today = formatDate(new Date());
     const newEntry = {
       date: today,
       mood,
       note,
     };
-  
+
     const response = await fetch('/api/mood-entries', {
       method: 'POST',
       headers: {
@@ -54,7 +70,7 @@ export function MoodTracker() {
       },
       body: JSON.stringify(newEntry),
     });
-  
+
     if (response.ok) {
       const updatedEntries = await response.json();
       setEntries(updatedEntries);
@@ -71,22 +87,26 @@ export function MoodTracker() {
     const date = e.target.value;
     setSelectedDate(date);
 
+    if (!date) {
+      setSelectedEntry(null);
+      return;
+    }
+
     const formattedDate = formatDate(new Date(date + "T00:00:00"));
-    
     const entry = entries.find((entry) => entry.date === formattedDate);
-    
     setSelectedEntry(entry || null);
   };
 
   return (
     <main>
-    <h2>Hello, {username}!</h2>
-    <h2>How are you feeling today?</h2>
+      <h2>Hello, {username}!</h2>
+      <h2>How are you feeling today?</h2>
       <div>
-        <select 
-          id="select" 
-          name="varSelect" 
-          className="select" 
+        <label htmlFor="mood-select">How are you feeling today?</label>
+        <select
+          id="mood-select"
+          name="varSelect"
+          className="select"
           value={mood}
           onChange={(e) => setMood(e.target.value)}
         >
@@ -97,13 +117,12 @@ export function MoodTracker() {
           <option>😴 tired</option>
           <option>😐 plain</option>
         </select>
-    </div>
+      </div>
 
-    {/* <!-- form for optional text entry --> */}
-    <div>
-        <label htmlFor="textarea">Add a note (optional): </label>
-        <textarea 
-          id="textarea" 
+      <div>
+        <label htmlFor="note-textarea">Add a note (optional):</label>
+        <textarea
+          id="note-textarea"
           name="varTextarea"
           value={note}
           onChange={(e) => setNote(e.target.value)}
@@ -111,28 +130,33 @@ export function MoodTracker() {
         <button type="button" id="mood-submit" onClick={handleSubmit}>
           Submit
         </button>
-    </div>
-    <div>
-        <h3>Past Entries</h3>
-        <label htmlFor="date">Select a date: </label>
-        <input
-          type="date"
-          id="date"
-          name="varDate"
-          value={selectedDate}
-          onChange={handleDateChange}
-        />
+      </div>
 
-        {selectedEntry ? (
-          <div>
-            <p>On {selectedEntry.date}, you felt {selectedEntry.mood}.</p>
-            {selectedEntry.note && <p>You said: "{selectedEntry.note}"</p>}
-          </div>
+      <div>
+        <h3>Past Entries</h3>
+        {isLoading ? (
+          <p>Loading past entries...</p>
         ) : (
-          selectedDate && <p>No entry found for this date.</p>
+          <>
+            <label htmlFor="date">Select a date: </label>
+            <input
+              type="date"
+              id="date"
+              name="varDate"
+              value={selectedDate}
+              onChange={handleDateChange}
+            />
+            {selectedEntry ? (
+              <div>
+                <p>On {selectedEntry.date}, you felt {selectedEntry.mood}.</p>
+                {selectedEntry.note && <p>You said: "{selectedEntry.note}"</p>}
+              </div>
+            ) : (
+              selectedDate && <p>No entry found for this date.</p>
+            )}
+          </>
         )}
-    </div>
-    
-  </main>
+      </div>
+    </main>
   );
 }
