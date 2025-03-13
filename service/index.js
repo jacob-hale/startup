@@ -21,3 +21,7 @@ app.get('/api/mood-entries', (req, res) => {
   ];
   res.json(entries);
 });
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
