@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Startup for CS 260\r ## Specification Deliverable\r ### Elevator Pitch\r Imagine a simple app that asks you one question every day: “How are you feeling today?” With just a tap, choose an emoji to reflect your mood and optionally jot down a quick note. \r The app organizes your entries into a beautiful calendar view, so you can spot trends and reflect on your emotional journey.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -20,10 +21,12 @@
   },
   "homepage": "https://github.com/jacob-hale/startup#readme",
   "dependencies": {
-    "give-me-a-joke": "^0.5.1",
-    "react-router-dom": "^7.1.5"
+    "express": "^4.21.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
-    "vite": "^6.1.0"
+    "vite": "^5.1.4"
   }
 }
