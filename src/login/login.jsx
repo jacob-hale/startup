@@ -6,34 +6,50 @@ export function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleCreateAccount = () => {
-    // Mock 
+  const handleCreateAccount = async () => {
     if (!username || !password) {
       alert("Don't leave name or password blank");
       return;
     }
-    const userId = `${username}_${password}`;
-
-    const newUser = { username, password, userId };
-    localStorage.setItem("user", JSON.stringify(newUser));
-    alert("Account created successfully!");
-    navigate("/moodtracker"); 
-  };
-
-  const handleSignIn = () => {
-    // Mock
-    if (!username || !password) {
-      alert("Don't leave name or password blank");
-      return;
-    }
-
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const userId = `${username}_${password}`;
-    if (storedUser && storedUser.userId === userId) {
-      
-      navigate("/moodtracker"); 
+  
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+  
+    if (response.ok) {
+      alert("Account created successfully!");
+      navigate("/moodtracker");
     } else {
-      alert("Invalid name or password.");
+      const errorData = await response.json();
+      alert(errorData.error || "Failed to create account.");
+    }
+  };
+  
+  const handleSignIn = async () => {
+    if (!username || !password) {
+      alert("Don't leave name or password blank");
+      return;
+    }
+  
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+  
+    if (response.ok) {
+      const userData = await response.json();
+      localStorage.setItem("user", JSON.stringify(userData));
+      navigate("/moodtracker");
+    } else {
+      const errorData = await response.json();
+      alert(errorData.error || "Invalid name or password.");
     }
   };
 
