@@ -102,7 +102,6 @@ export function MoodTracker() {
       <h2>Hello, {username}!</h2>
       <h2>How are you feeling today?</h2>
       <div>
-        <label htmlFor="mood-select">How are you feeling today?</label>
         <select
           id="mood-select"
           name="varSelect"
@@ -132,7 +131,7 @@ export function MoodTracker() {
         </button>
       </div>
 
-      <div>
+      <div className="calendar-container">
         <h3>Past Entries</h3>
         {isLoading ? (
           <p>Loading past entries...</p>

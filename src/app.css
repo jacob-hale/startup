@@ -184,6 +184,7 @@ footer a:hover {
 
 .select{
   margin-bottom: 10px;
+  width: auto;
 }
 
 #mood-submit{
@@ -212,4 +213,12 @@ transition: transform 0.3s ease-in-out;
 #heart:hover .heart-emoji{
   transform: scale(2.1);
   transition: transform 0.3s ease-in-out;
+}
+
+.calendar-container {
+  margin-bottom: 20px; 
+}
+
+.select-emotion {
+  width: 200px;
 }
