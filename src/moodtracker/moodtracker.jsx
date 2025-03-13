@@ -19,15 +19,14 @@ export function MoodTracker() {
 
 
   // load past entries
-  useEffect (() => {
-    // mock
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser){
-      setUsername(storedUser.username);
-      const userEntriesKey = `moodEntries_${storedUser.userId}`;
-      const savedEntries = JSON.parse(localStorage.getItem(userEntriesKey)) || [];
-      setEntries(savedEntries);
-    }
+  useEffect(() => {
+    const fetchEntries = async () => {
+      const response = await fetch('/api/mood-entries');
+      const data = await response.json();
+      setEntries(data);
+    };
+  
+    fetchEntries();
   }, []);
 
   const formatDate = (date) => {
@@ -35,36 +34,37 @@ export function MoodTracker() {
     return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!mood) {
-      alert("Please select a mood.");
+      alert('Please select a mood.');
       return;
     }
-    // This will be replaced by 3rd party service call to retrieve actual date
+  
     const today = formatDate(new Date());
-    const hasEntryForToday = entries.some((entry) => entry.date === today);
-
-    if (hasEntryForToday) {
-      alert("You can only submit one entry per day. Try again tomorrow!");
-      setMood("");
-      setNote("");
-      return;
-    }
-
     const newEntry = {
       date: today,
       mood,
       note,
     };
-
-    const updatedEntries = [...entries, newEntry];
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const userEntriesKey = `moodEntries_${storedUser.userId}`;
-    localStorage.setItem(userEntriesKey, JSON.stringify(updatedEntries));
-    setEntries(updatedEntries);
-    alert("Entry submitted successfully!")
-    setMood("");
-    setNote("");
+  
+    const response = await fetch('/api/mood-entries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newEntry),
+    });
+  
+    if (response.ok) {
+      const updatedEntries = await response.json();
+      setEntries(updatedEntries);
+      alert('Entry submitted successfully!');
+      setMood('');
+      setNote('');
+    } else {
+      const errorData = await response.json();
+      alert(errorData.error || 'Failed to submit entry.');
+    }
   };
 
   const handleDateChange = (e) => {
