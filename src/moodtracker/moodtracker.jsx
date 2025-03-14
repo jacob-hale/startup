@@ -36,7 +36,7 @@ export function MoodTracker() {
         setEntries(data);
       } catch (error) {
         console.error(error);
-        alert('Failed to load mood entries. Please try again later.');
+        // alert('Failed to load mood entries. Please try again later.');
       } finally {
         setIsLoading(false);
       }
