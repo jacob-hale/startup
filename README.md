@@ -75,3 +75,16 @@ All HTML is structured in an organized way and functions properly. Placeholders 
 - Deployed startup application to server
 - Application is available
 - Uploaded URL to Canvas
+
+## Startup Service Deliverable
+- Reviewed and deployed Simon Serevice to simon subdomain
+- Converted startup application into a web service using Node.js and Express
+- Created a service/index.js file for the backend
+- Created new endpoints fornthe backend that are similar to those created by Simon
+- Call endpoints from frontend using fetch
+- Periodically committed and pushed to GitHub
+- Updated notes.md
+- Pushed final version to GitHub
+- Deployed startup application to server
+- Application is available
+- Uploaded URL to Canvas

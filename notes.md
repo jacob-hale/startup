@@ -66,3 +66,5 @@ useState uses properties on the page and is used to update them
 useEffect are like functions that run without needing to be called
 
 Make helper functions
+
+### Don't forget the -s startup when you deploy
